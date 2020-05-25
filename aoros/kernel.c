@@ -12,13 +12,13 @@ kernel_early (void)
 int 
 main (void)
 {
-    const char* str = "AOROS v0.01";
+    const char* str = "OK - AOROS v0.01";
     unsigned int i = 0;     // placeholder for text string position
     unsigned int j = 0;     // placeholder for video buffer position
 
     while (str[i] != '\0') {
         VGA_MEMORY[j]      = str[i];
-        VGA_MEMORY[j + 1]  = 0x07;
+        VGA_MEMORY[j + 1]  = 0x0a;
         i++;
         j+=2;
     }
