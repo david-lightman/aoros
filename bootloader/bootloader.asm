@@ -13,7 +13,7 @@ call print
 cli
 hlt
 data:
- msg db 'hello world!', 0
+ msg db 'Hello bootloader!', 0
 
 print:
  mov ah, 0x0e 

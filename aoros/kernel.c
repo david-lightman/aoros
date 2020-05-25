@@ -12,7 +12,7 @@ kernel_early (void)
 int 
 main (void)
 {
-    const char* str = "Hello world!";
+    const char* str = "AOROS v0.01";
     unsigned int i = 0;     // placeholder for text string position
     unsigned int j = 0;     // placeholder for video buffer position
 

@@ -1,5 +1,5 @@
 CC=gcc
-TARGET=paedos
+TARGET=aoros
 C_FILES=./kernel.c
 OBJS=$(C_FILES:.c=.o)
 
@@ -15,7 +15,7 @@ $(TARGET): $(OBJS)
 	$(CC) -m32 -nostdlib -nodefaultlibs -lgcc start.o $? -T linker.ld -o $(TARGET)
 
 finale:
-	$(shell cd ~/paedos/)
+	$(shell cd ~/aoros/)
 	$(shell cp $(TARGET) ./iso/boot/$(TARGET))
 	$(shell grub2-mkrescue iso --output=$(TARGET).iso)
 
