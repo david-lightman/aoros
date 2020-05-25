@@ -8,7 +8,7 @@ mov sp, 0x1000  ;stack pointer to 0x08e00 (stack grows down towards ss)
 mov ax, 0x07c0  ;set the data segment
 mov ds, ax      ;
 
-mov si, msg     ;place ptr to our msg in source-index
+mov si, msg     ;place ptr to our msg in source-index SI register
 call print      ; goto print:
 cli
 hlt
@@ -30,7 +30,8 @@ print:
  ret
 
 ; MBR is 512 bytes
-; zero out 510 bytes (from the beginning of section ($$) to current address ($))
+; write a zero-byte (db 0) 510 times from the start-of-segement-position ($$)
+; to the current-position ($); since the MBR is 512-bytes, we need to leave
+; two bytes for our signature
 times 510 - ($ - $$) db 0
-; boot signature - some older BIOSes use this to ID a boot sector
-dw 0xaa55   
+dw 0xaa55       ; master boot record signature
